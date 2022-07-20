@@ -11,7 +11,18 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+
+        NetworkManager.shared.getCharacter(name: "rick") { result in
+            
+            switch result{
+                
+            case .success(let response):
+                print(response.results)
+            case .failure(let error):
+                print(error)
+            }
+            
+        }
     }
 
 
